@@ -9,6 +9,9 @@ import 'package:flutter/material.dart';
 // a package import, as shown below.
 // More details at http://dart-lang.github.io/linter/lints/avoid_relative_lib_imports.html
 import 'package:task_02_category_widget/category.dart';
+import 'package:task_02_category_widget/model/categories.dart';
+import 'package:task_02_category_widget/screens/category_screen.dart';
+import 'package:provider/provider.dart';
 
 // TODO: Pass this information into your custom [Category] widget
 const _categoryName = 'Cake';
@@ -25,27 +28,26 @@ void main() {
 class UnitConverterApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: 'Unit Converter',
-      home: Scaffold(
-        appBar: AppBar(
-          leading: Icon(
-            Icons.close,
-            color: Colors.black,
+    return Provider<Categories>.value(
+      value: Categories(),
+      child: MaterialApp(
+        debugShowCheckedModeBanner: false,
+        title: 'Unit Converter',
+        home: Scaffold(
+          appBar: AppBar(
+            leading: Icon(
+              Icons.close,
+              color: Colors.black,
+            ),
+            title: Text(
+              "UNIT CONVERTER",
+              style: TextStyle(fontSize: 30.0, color: Colors.black),
+            ),
+            backgroundColor: Colors.transparent,
+            elevation: 0,
           ),
-          title: Text(
-            "UNIT CONVERTER",
-            style: TextStyle(fontSize: 30.0, color: Colors.black),
-          ),
-          backgroundColor: Colors.transparent,
-          elevation: 0,
-        ),
-        backgroundColor: Colors.green[100],
-        body: Category(
-          name: _categoryName,
-          color: _categoryColor,
-          iconLocation: _categoryIcon,
+          backgroundColor: Colors.green[100],
+          body: CategoryScreen(),
         ),
       ),
     );
