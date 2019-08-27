@@ -18,11 +18,10 @@ class _ConverterScreenState extends State<ConverterScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          centerTitle: true,
-          leading: Icon(
-            Icons.arrow_back,
-            color: Colors.black,
+          iconTheme: IconThemeData(
+            color: Colors.black, //change your color here
           ),
+          centerTitle: true,
           title: Text(
             Provider.of<Categories>(context)
                 .categoriesList[widget.selectedIndex]
