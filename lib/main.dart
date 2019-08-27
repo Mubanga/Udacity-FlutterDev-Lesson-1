@@ -13,6 +13,9 @@ import 'package:task_02_category_widget/model/categories.dart';
 import 'package:task_02_category_widget/screens/category_screen.dart';
 import 'package:provider/provider.dart';
 
+/// Convention Is To Import Your Router With "router" Alias
+import 'package:task_02_category_widget/router.dart' as router;
+
 // TODO: Pass this information into your custom [Category] widget
 const _categoryName = 'Cake';
 const _categoryIcon = Icons.cake;
@@ -32,23 +35,9 @@ class UnitConverterApp extends StatelessWidget {
       value: Categories(),
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
+        onGenerateRoute: router.generateRoute,
+        initialRoute: router.CategoryScreenRoute,
         title: 'Unit Converter',
-        home: Scaffold(
-          appBar: AppBar(
-            leading: Icon(
-              Icons.close,
-              color: Colors.black,
-            ),
-            title: Text(
-              "UNIT CONVERTER",
-              style: TextStyle(fontSize: 30.0, color: Colors.black),
-            ),
-            backgroundColor: Colors.transparent,
-            elevation: 0,
-          ),
-          backgroundColor: Colors.green[100],
-          body: CategoryScreen(),
-        ),
       ),
     );
   }
